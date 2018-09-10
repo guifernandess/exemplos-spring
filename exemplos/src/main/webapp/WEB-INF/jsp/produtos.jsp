@@ -17,7 +17,7 @@
             <h1>Produtos</h1>
             <div class="row">
                 <c:forEach items="${produtos}" var="p">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-4">
                         <img src="${p.imagem}">
                         <h2><c:out value="${p.nome}" /></h2>
                         <p><c:out value="${p.descricao}" /></p>
