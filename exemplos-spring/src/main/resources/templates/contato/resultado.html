@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spring MVC - Exemplo Form - Resultado</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12" th:if="${contato != null}" >
+                        <h1>Contato cadastrado</h1>
+                        <h2>Nome: <span th:text="${contato.nome}">Teste</span></h2>
+                        <p>Biografia: <span th:text="${contato.biografia}">Biografia</span></p>
+                        <p>E-mail: <span th:text="${contato.email}">email@email.com</span></p>
+
+                        <p>Idade: <span th:text="${contato.idade}"></span></p>
+                        <p>Sexo: <span th:switch="${contato.sexo}">
+                                <span th:case="1">Masculino</span>
+                                <span th:case="*">Feminino</span>
+                            </span></p>
+                        <p th:if="${contato.idade < 18}">*** Menor de 18 anos ***</p>
+                    </div>
+                    <div class="col-12" th:if="${contato == null}">
+                        <h1>Erro</h1>
+                        <a th:href="@{/contato/entrada}">Voltar para formulário</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
