@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tads.dsw.exemplosspring.controller;
+package br.senac.tads4.dsw.exemplosspring.controller;
 
-import br.senac.tads.dsw.exemplosspring.model.Contato;
+import br.senac.tads4.dsw.exemplosspring.model.Contato;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
