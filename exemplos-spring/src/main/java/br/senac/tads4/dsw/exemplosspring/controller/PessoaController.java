@@ -47,11 +47,20 @@ public class PessoaController {
     }
     
     @PostMapping("/salvar")
-    public ModelAndView salvar(@ModelAttribute("pessoa") Pessoa pessoa) {
-        ModelAndView retorno = new ModelAndView("pessoa/resultado")
-                .addObject("pessoa", pessoa);
+    public ModelAndView salvar(@ModelAttribute("pessoa") Pessoa pessoa, 
+            RedirectAttributes redirectAttributes) {
+        
+//        ModelAndView retorno = new ModelAndView("pessoa/resultado")
+//                .addObject("pessoa", pessoa);
+//        return retorno;
+        redirectAttributes.addFlashAttribute("pessoa", pessoa);
+        ModelAndView retorno = new ModelAndView("redirect:/mvc/pessoa/resultado");
         return retorno;
     }
     
-
+    @GetMapping("/resultado")
+    public ModelAndView mostrarResultado() {
+        return new ModelAndView("pessoa/resultado");
+    }
+    
 }
