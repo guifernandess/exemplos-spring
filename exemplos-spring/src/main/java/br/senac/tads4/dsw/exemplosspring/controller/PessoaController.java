@@ -10,9 +10,12 @@ import br.senac.tads4.dsw.exemplosspring.service.PessoaService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -36,4 +39,19 @@ public class PessoaController {
         return new ModelAndView("pessoa/detalhe").addObject("pessoa", pessoa);
     }
     
+    @GetMapping("/form")
+    public ModelAndView abrirForm() {
+        ModelAndView retorno = new ModelAndView("pessoa/formulario")
+                .addObject("pessoa", new Pessoa());
+        return retorno;
+    }
+    
+    @PostMapping("/salvar")
+    public ModelAndView salvar(@ModelAttribute("pessoa") Pessoa pessoa) {
+        ModelAndView retorno = new ModelAndView("pessoa/resultado")
+                .addObject("pessoa", pessoa);
+        return retorno;
+    }
+    
+
 }
