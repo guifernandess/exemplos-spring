@@ -21,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @SessionAttributes("contador")
 @RequestMapping("/sessao-contador1")
+
+// Ver https://www.baeldung.com/spring-mvc-session-attributes
 public class ExemploSessao1Controller {
 
     private Contador contador;
@@ -38,10 +40,7 @@ public class ExemploSessao1Controller {
 
     @ModelAttribute("contador")
     public Contador getContador() {
-        if (contador == null) {
-            contador = new Contador();
-        }
-        return contador;
+        return new Contador();
     }
 
     public void setContador(Contador contador) {
