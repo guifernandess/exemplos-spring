@@ -16,6 +16,12 @@
                 </div>
             </div>
             <div>
+                <label>Data nascimento</label>
+                <input type="text" th:field="*{dtNascimento}" />
+                <div th:if="${#fields.hasErrors('dtNascimento')}" th:errors="*{dtNascimento}">
+                </div>
+            </div>
+            <div>
                 <label>E-mail</label>
                 <input type="email" th:field="*{email}" />
                 <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
